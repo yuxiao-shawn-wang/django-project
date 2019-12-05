@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<h2>Statistics About Squirrel Data</h2>
+
+<table style="width:100%">
+<table>
+  <col>
+  <colgroup span="3"></colgroup>
+  <thead>
+    <tr>
+      <th scope="col">Feature</th>
+      <th scope="col">Value</th>
+      <th scope="col">Count</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for field,data in field_values.items %}
+    <tr>
+      <th rowspan=data|length scope="rowgroup">{{field}}</th>
+      {% for val, num in data.items %}
+      <th scope="row">{{val}}</th>
+      <td>{{num}}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+</body>
+</html>
