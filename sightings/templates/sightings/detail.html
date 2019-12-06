@@ -1,20 +1,16 @@
-<!doctype>
+<!DOCTYPE html>
 <html>
 <body>
-   <form method = 'POST' >
-    {% csrf_token %}
-       
-     {{form.as_p}}  
-    <br>   
-    <input type='submit' name='Submit'>     
-    <br>
-   </form>
+    <form method = 'POST' >
+        {% csrf_token %}
+        {{form.as_p}}
+        <br>
+        <input type='submit' name='Submit'>
+        <br>
+    </form>
     <form action="{% url 'sightings:delete' squirrel.Unique_Squirrel_ID %}" method = 'POST' >
         {% csrf_token %}
         <button onclick="return confirm('Do you want to delete it?')";>Delete</button>
-
-</form>
-
+    </form>
 </body>
 </html>
-
