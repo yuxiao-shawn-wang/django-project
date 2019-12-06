@@ -38,7 +38,7 @@ class Command(BaseCommand):
 					obj.Climbing = (row[17] == 'true')
 					obj.Eating = (row[18] == 'true')
 					obj.Foraging = (row[19] == 'true')
-					obj.Other_Activities = (row[20] == 'true')
+					obj.Other_Activities = row[20]
 					obj.Kuks = (row[21] == 'true')
 					obj.Quaas = (row[22] == 'true')
 					obj.Moans = (row[23] == 'true')
