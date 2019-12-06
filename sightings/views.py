@@ -34,6 +34,7 @@ def delete(request, Unique_Squirrel_ID):
     squirrel.delete()
     return HttpResponse('Successfully Delete it!')
 
+# a view to show stats about the Squirrel Dataset
 def stats(request):
     squirrels = Squirrel.objects.all()
     field_name = [x.name for x in Squirrel._meta.fields 
@@ -47,3 +48,6 @@ def stats(request):
 
     context = {'field_values':field_values}
     return render(request, 'sightings/stats.html', context)
+
+def home(request):
+    return render(request,'sightings/home.html')
