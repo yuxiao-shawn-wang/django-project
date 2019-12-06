@@ -8,7 +8,6 @@ def all_sightings(request):
     context = {'squirrels': squirrels}
     return render(request, 'sightings/all.html', context)
 
-
 # create a function that can add a new sighting
 def add(request):
     if request.method == 'POST':
