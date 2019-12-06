@@ -8,6 +8,23 @@ def all_sightings(request):
     context = {'squirrels': squirrels}
     return render(request, 'sightings/all.html', context)
 
+
+# create a function that can add a new sighting
+def add(request):
+    if request.method == 'POST':
+        form = SquirrelModelForm(request.POST)
+        if form.is_valid():
+            model_instance=form.save(commit=False)
+            model_instance.save() 
+            return redirect('/sightings')
+        else:
+            return HttpResponse('Something Wrong!')
+    else:
+         form  = SquirrelModelForm()
+         context = {'form': form}
+         return render(request, 'sightings/create.html', context)
+
+
 # create a detail funtion to check and update the detail information of a squirrel sighting
 def squirrel_details(request,Unique_Squirrel_ID):
     squirrel = get_object_or_404(Squirrel, Unique_Squirrel_ID=Unique_Squirrel_ID)
@@ -33,3 +50,5 @@ def delete(request, Unique_Squirrel_ID):
     squirrel = get_object_or_404(Squirrel, Unique_Squirrel_ID=Unique_Squirrel_ID)
     squirrel.delete()
     return HttpResponse('Successfully Delete it!')
+
+
