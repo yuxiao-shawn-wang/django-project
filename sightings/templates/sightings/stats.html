@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td { border: 1px solid black; }
+</style>
+</head>
+
+<body>
+<h2>Statistics About Squirrel Data</h2>
+<table style="width:100%">
+<table>
+	<col>
+	<colgroup span="3"></colgroup>
+	<thead>
+		<tr>
+			<th scope="col">Feature</th>
+			<th scope="col">Value</th>
+			<th scope="col">Count</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		{% for field,data in field_values.items %}
+		<var hidden> n=1 </var>
+			{% for val, num in data.items %}
+			{% if forloop.first %}
+			<tr>
+				<th rowspan={{data|length}} scope="rowgroup">{{field}}</th>
+				<th scope="row">{{val|default_if_none:'None'}}</th>
+				<td>{{num}}</td>
+			</tr>
+			{% else %}
+			<tr>
+				<th scope="row">{{val|default_if_none:'None'}}</th>
+				<td>{{num}}</td>
+			</tr>
+			{% endif %}
+			{% endfor %}
+		{% endfor %}
+	</tbody>
+</table>
+</body>
+</html>

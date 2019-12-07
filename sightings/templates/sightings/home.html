@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'sightings/style.css' %}">
+	{% block content %}
+	<h2> Home Page </h2>
+	<li><a href="/sightings/">List of All Squirrels</a></li>
+	<li><a href="/sightings/stats">Stats of Squirrel Dataset</a></li>
+	<li><a href="/map/">Map of Squirrels</a></li>
+	{% endblock %}
+	<br>
+	<img src="static/sightings/images/Squirrel.gif" width="450" height="350">
+</body>
+</html>

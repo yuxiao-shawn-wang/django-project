@@ -18,10 +18,12 @@ class Squirrel(models.Model):
     Adult = 'Adult'
     Juvenile = 'Juvenile'
     Other_Age = '?'
+    Missing_Age = ''
     Age_Choices = [
         (Adult,'Adult'),
         (Juvenile,'Juvenile'),
         (Other_Age,'Unknown'),
+        (Missing_Age,'Missing'),
     ]
     Age = models.CharField(
         max_length=10,
@@ -36,7 +38,7 @@ class Squirrel(models.Model):
         (Gray,'Gray'),
         (Cinnamon,'Cinnamon'),
         (Black,'Black'),
-        (Other_Color,'Unknown'),
+        (Other_Color,'Missing'),
         ]
     Primary_Fur_Color = models.CharField(
         max_length=10,
@@ -49,7 +51,7 @@ class Squirrel(models.Model):
     Location_Choices = [
         (Ground_Plane,'Ground Plane'),
         (Above_Ground,'Above Ground'),
-        (Other_Location,'Unknown'),
+        (Other_Location,'Missing'),
     ]
     Location = models.CharField(
         max_length=15,
