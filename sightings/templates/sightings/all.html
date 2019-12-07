@@ -1,42 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">  
-
-
-	 <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    
-
-      <body>
-{% block content %}
-
-<div class="text-center container p-3 my-3 bg-primary text-white" ><h3>Squirrel Tracker</h3> </div>
-<div class="row">
-	<div class="col-sm-3"></div>
-	<div class="col-sm-3">
-		<a class="btn btn-outline-primary btn-lg"  href="/sightings/add" role="button"> Add a Sighting</a>
-</div>
-	<div class="col-sm-3">
-	 <a class="btn btn-outline-primary btn-lg" href="/sightings/stats" role="button">Get the Stats about the Sightings</a>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<body>
+	{% block content %}
+	<div class="text-center container p-3 my-3 bg-primary text-white" ><h3>Squirrel Tracker</h3> </div>
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-3">
+			<a class="btn btn-outline-primary btn-lg"  href="/sightings/add" role="button"> Add a Sighting</a>
+		</div>
+		<div class="col-sm-3">
+			<a class="btn btn-outline-primary btn-lg" href="/sightings/stats" role="button">Get the Stats about the Sightings</a>
+		</div>
+		<div class="col-sm-3"></div>
 	</div>
-	<div class="col-sm-3"></div>
-
-</div>
-
-{% for squirrel in squirrels %}
-<div class="card"> 
-    <div class="card-body">
-	    <h4 class="card-title">Unique Squirrel ID of the Sighting - {{squirrel.Unique_Squirrel_ID}}</h4>
-    click link for detail information: <a href="/sightings/{{squirrel.Unique_Squirrel_ID}}" class="card-link">{{squirrel.Unique_Squirrel_ID}}</a>
-  </div>
-</div>
-{%endfor%}
- 
-{% endblock %}
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	{% for squirrel in squirrels %}
+	<div class="card"> 
+		<div class="card-body">
+			<h4 class="card-title">Unique Squirrel ID of the Sighting - {{squirrel.Unique_Squirrel_ID}}</h4>
+			click link for detail information: <a href="/sightings/{{squirrel.Unique_Squirrel_ID}}" class="card-link">{{squirrel.Unique_Squirrel_ID}}</a>
+		</div>
+	</div>
+	{%endfor%}
+	{% endblock %}
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-	</body>
+</body>
 </html>

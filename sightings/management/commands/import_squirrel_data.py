@@ -1,6 +1,7 @@
 import os
 import csv
 from django.core.management.base import BaseCommand, CommandError
+from distutils.util import strtobool
 from sightings.models import Squirrel
 
 class Command(BaseCommand):
@@ -15,38 +16,35 @@ class Command(BaseCommand):
 			raise CommandError("%s does not exist." % path)
 
 		with open (path, 'r') as f:
-			reader = csv.reader (f, delimiter=',',quotechar="\"")
-			first = True
-			for row in reader:
-				if first:
-					first = False
-					continue
+			reader = csv.DictReader (f)
+			data = list(reader)
+			for item in data:
 				try:
 					obj = Squirrel()
-					obj.Latitude = float(row[1])
-					obj.Longitude = float(row[0])
-					obj.Unique_Squirrel_ID = row[2]
-					obj.Shift = row[4]
-					date = row[5][4:] + '-' + row[5][:2] + '-' + row[5][2:4]
+					obj.Latitude = float(item['Y'])
+					obj.Longitude = float(item['X'])
+					obj.Unique_Squirrel_ID = item['Unique Squirrel ID']
+					obj.Shift = item['Shift']
+					date = item['Date'][4:] + '-' + item['Date'][:2] + '-' + item['Date'][2:4]
 					obj.Date = date
-					obj.Age = row[7]
-					obj.Primary_Fur_Color = row[8]
-					obj.Location = row[12]
-					obj.Specific_Location = row[14]
-					obj.Running = (row[15] == 'true')
-					obj.Chasing = (row[16] == 'true')
-					obj.Climbing = (row[17] == 'true')
-					obj.Eating = (row[18] == 'true')
-					obj.Foraging = (row[19] == 'true')
-					obj.Other_Activities = (row[20] == 'true')
-					obj.Kuks = (row[21] == 'true')
-					obj.Quaas = (row[22] == 'true')
-					obj.Moans = (row[23] == 'true')
-					obj.Tail_flags = (row[24] == 'true')
-					obj.Tail_twitches = (row[25] == 'true')
-					obj.Approaches = (row[26] == 'true')
-					obj.Indifferent = (row[21] == 'true')
-					obj.Runs_from = (row[27] == 'true')
+					obj.Age = item['Age']
+					obj.Primary_Fur_Color = item['Primary Fur Color']
+					obj.Location = item['Location']
+					obj.Specific_Location = item['Specific Location']
+					obj.Running = (item['Running'] == 'true') or (item['Running'] == 'True')
+					obj.Chasing = (item['Chasing'] == 'true') or (item['Chasing'] == 'True')
+					obj.Climbing = (item['Climbing'] == 'true') or (item['Climbing'] == 'True')
+					obj.Eating = (item['Eating'] == 'true') or (item['Eating'] == 'True')
+					obj.Foraging = (item['Foraging'] == 'true') or (item['Foraging'] == 'True')
+					obj.Other_Activities = item['Other Activities']
+					obj.Kuks = (item['Kuks'] == 'true') or (item['Kuks'] == 'True')
+					obj.Quaas = (item['Quaas'] == 'true') or (item['Quaas'] == 'True')
+					obj.Moans = (item['Moans'] == 'true') or (item['Moans'] == 'True')
+					obj.Tail_flags = (item['Tail flags'] == 'true') or (item['Tail flags'] == 'True')
+					obj.Tail_twitches = (item['Tail twitches'] == 'true') or (item['Tail twitches'] == 'True')
+					obj.Approaches = (item['Approaches'] == 'true') or (item['Approaches'] == 'True')
+					obj.Indifferent = (item['Indifferent'] == 'true') or (item['Indifferent'] == 'True')
+					obj.Runs_from = (item['Runs from'] == 'true') or (item['Runs from'] == 'True')
 					obj.save ()
 				except Exception as e:
 					raise CommandError(e)
