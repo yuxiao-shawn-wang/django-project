@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="en"> 
 <meta charset="utf-8">
-<body>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+	<div class="w3-top">
+		<div class="w3-bar w3-white w3-wide w3-padding w3-card">
+			<a href="#home" class="w3-bar-item w3-button"><b>Home</b> 2018 Squirrel Census </a>
+			<div class="w3-right w3-hide-small">
+				<a href="/sightings/" class="w3-bar-item w3-button">LIST</a>
+				<a href="/sightings/stats" class="w3-bar-item w3-button">STAT</a>
+				<a href="/map/" class="w3-bar-item w3-button">MAP</a>
+			</div>
+		</div>
+	</div>
 	{% load static %}
-	<link rel="stylesheet" type="text/css" href="{% static 'sightings/style.css' %}">
-	{% block content %}
-	<h2> Home Page </h2>
-	<li><a href="/sightings/">List of All Squirrels</a></li>
-	<li><a href="/sightings/stats">Stats of Squirrel Dataset</a></li>
-	<li><a href="/map/">Map of Squirrels</a></li>
-	{% endblock %}
-	<br>
-	<img src="static/sightings/images/Squirrel.gif" width="450" height="350">
+	<img class="w3-image" src="static/sightings/images/Squirrel.gif" alt="Squirrel" width="1500" height="800">
+</header>
+
+<body>
 </body>
 </html>
