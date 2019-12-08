@@ -18,7 +18,7 @@ This is a django project about tracking squirrel in Central Park. The built webs
 | sightings| An application file directory. Supports the add, update squirrel data view and import, export data function| 
 | map| An application file directory. Displays the location of the squirrel sightings on the map|
 ## Install
-This project uses **Django** and **crispy_forms**. Go check them out if you don't have them locally installed or you can use the requirements.txt to install all dependencies used in this project. 
+This project uses **Django** and **crispy_forms**. Go check them out if you don't have them locally installed or you can use the requirements.txt (in the root directory) to install all dependencies used in this project. 
 
 ```
 $ pip install -r requirements.txt
