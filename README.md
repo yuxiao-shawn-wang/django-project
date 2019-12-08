@@ -2,9 +2,6 @@
 
 Practice Django Project for course: Tools for Analytics (SEC 1)
 
-## Contributors:
-* group name: Project Group 37, Section 1
-* UNIs:[xy2425, yw3379]
 
 ### Table of Contents
 * Background 
