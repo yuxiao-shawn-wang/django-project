@@ -21,16 +21,9 @@ This is a django project about tracking squirrel in Central Park. The built webs
 This project uses **Django** and **crispy_forms**. Go check them out if you don't have them locally installed or you can use the requirements.txt to install all dependencies used in this project. 
 
 ```
-$ python -m pip install Django
+$ pip install -r requirements.txt
 ```
 
-```
-$ pip3 install --user django-crispy-forms
-```
-
-```
-$ pip install -r /path/to/requirements.txt
-```
 ## Contributors:
 * group name: Project Group 37, Section 1
 * UNIs:[xy2425, yw3379]
