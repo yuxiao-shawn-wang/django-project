@@ -14,7 +14,6 @@ Thumbs.db
 # Logs and databases #
 *.log
 *.sql
-*.sqlite3
 
 # Compiled source #
 *.com
